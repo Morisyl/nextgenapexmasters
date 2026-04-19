@@ -3,42 +3,42 @@ import { useEffect, useRef } from 'react';
 
 const SERVICES = [
   {
-    img: 'public/images/service-construction.jpg',
+    img: 'public/images/service-construction.svg',
     icon: '🏗️',
     title: 'Building & Construction',
     desc: 'Precision execution of residential, commercial, and institutional projects — from foundation to finishing.',
     tag: 'Core Service',
   },
   {
-    img: 'public/images/service-architecture.jpg',
+    img: 'public/images/service-architecture.svg',
     icon: '📐',
     title: 'Architectural Design',
     desc: 'Functional and aesthetic blueprints inspired by modern, sustainable concepts that stand the test of time.',
     tag: 'Design',
   },
   {
-    img: 'public/images/service-management.jpg',
+    img: 'public/images/service-management.svg',
     icon: '📋',
     title: 'Project Management',
     desc: 'End-to-end oversight to ensure budgets and timelines remain on track across every project phase.',
     tag: 'Management',
   },
   {
-    img: 'public/images/service-realestate.jpg',
+    img: 'public/images/service-realestate.svg',
     icon: '🏢',
     title: 'Real Estate Services',
     desc: 'Expert property management, sales, and development guidance to maximize asset value.',
     tag: 'Real Estate',
   },
   {
-    img: 'public/images/service-logistics.jpg',
+    img: 'public/images/service-logistics.svg',
     icon: '🚚',
     title: 'Logistics & Mobility',
     desc: 'Streamlined delivery of high-quality construction materials to eliminate delays and keep sites moving.',
     tag: 'Supply Chain',
   },
   {
-    img: 'public/images/service-hardware.jpg',
+    img: 'public/images/service-hardware.svg',
     icon: '🔧',
     title: 'Hardware & Electrical',
     desc: 'A one-stop shop for professional-grade tools and industry-standard electrical components.',
@@ -119,7 +119,7 @@ export default function Home() {
       {/* NAV */}
       <nav>
         <a href="#hero" className="nav-logo" onClick={scrollTo('hero')}>
-          <img src="public/images/logo.png" alt="NextGen Apex Masters Logo" onError={(e) => { e.target.style.display='none'; }} />
+          <img src="public/images/logo.svg" alt="NextGen Apex Masters Logo" onError={(e) => { e.target.style.display='none'; }} />
           <div className="nav-wordmark">
             NEXT<span>GEN</span><br />
             <span style={{ color: 'var(--steel)', fontWeight: 400, fontSize: '0.72rem', letterSpacing: '0.15em' }}>APEX MASTERS LTD</span>
@@ -144,7 +144,7 @@ export default function Home() {
       {/* HERO */}
       <section id="hero">
         <div className="hero-bg">
-          <img src="public/images/hero-building.jpg" alt="" className="hero-bg-img" />
+          <img src="public/images/hero-building.svg" alt="" className="hero-bg-img" />
           <div className="hero-grid" />
           <div className="hero-accent-bar" />
         </div>
@@ -182,7 +182,7 @@ export default function Home() {
         <div className="about-inner">
           <div className="about-img-wrap">
             <div className="about-img-accent" />
-            <img src="public/images/about-team.jpg" alt="NextGen Apex Masters team and project" />
+            <img src="public/images/about-team.svg" alt="NextGen Apex Masters team and project" />
           </div>
           <div>
             <div className="section-eyebrow">Who We Are</div>
@@ -245,7 +245,7 @@ export default function Home() {
 
       {/* CTA BANNER */}
       <section id="cta-banner">
-        <img src="public/images/cta-background.jpg" alt="" className="cta-bg" />
+        <img src="public/images/cta-background.svg" alt="" className="cta-bg" />
         <div className="cta-overlay" />
         <div className="cta-content">
           <div className="section-eyebrow">Ready to Build?</div>
@@ -261,7 +261,7 @@ export default function Home() {
       <footer id="contact">
         <div className="footer-inner">
           <div className="footer-brand">
-            <img src="public/images/logo.png" alt="NextGen Apex Masters" onError={(e) => { e.target.style.display = 'none'; }} />
+            <img src="public/images/logo.svg" alt="NextGen Apex Masters" onError={(e) => { e.target.style.display = 'none'; }} />
             <p>
               A premier enterprise dedicated to shaping the built environment with technical precision, from architectural design to logistics.
             </p>
