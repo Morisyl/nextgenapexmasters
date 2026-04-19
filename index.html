@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGen Apex Masters Ltd — Building the Future</title>
+  <meta name="description" content="Premier construction, real estate and logistics solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e8441a;
+      --orange-light: #f05a2a;
+      --dark: #0d1117;
+      --dark-2: #161b22;
+      --dark-3: #1c2230;
+      --mid: #2a3244;
+      --steel: #8b9bbd;
+      --light: #d4dde8;
+      --white: #f5f7fa;
+      --nav-height: 72px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232,68,26,0.18);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 42px; object-fit: contain; }
+    .nav-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); letter-spacing: 0.05em; line-height: 1.2; }
+    .nav-wordmark .accent { color: var(--orange); }
+    .nav-wordmark .sub { color: var(--steel); font-weight: 400; font-size: 0.7rem; letter-spacing: 0.15em; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); text-decoration: none; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s ease; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px !important; border-radius: 3px; font-weight: 700 !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--orange-light) !important; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; padding-top: var(--nav-height);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 60%, #1a1020 100%); }
+    .hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.18; }
+    .hero-accent-bar { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(to bottom, var(--orange), transparent); }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(232,68,26,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232,68,26,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 780px; animation: fadeUp 0.9s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(232,68,26,0.4); padding: 6px 16px; margin-bottom: 28px; border-radius: 2px; }
+    .hero-headline { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 900; line-height: 0.93; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 24px; }
+    .hero-headline em { font-style: normal; color: var(--orange); }
+    .hero-sub { font-size: 1.1rem; font-weight: 300; line-height: 1.7; color: var(--steel); max-width: 520px; margin-bottom: 42px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { background: var(--orange); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 36px; border: none; border-radius: 3px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 36px; border: 1px solid rgba(255,255,255,0.25); border-radius: 3px; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+    .hero-stats { position: absolute; right: 5%; bottom: 80px; display: flex; gap: 40px; z-index: 2; }
+    .stat-item { text-align: right; }
+    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .stat-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel); margin-top: 4px; }
+
+    /* SECTION SHARED */
+    section { padding: 96px 5%; }
+    .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--orange); }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; text-transform: uppercase; line-height: 1; color: var(--white); margin-bottom: 20px; }
+    .section-title em { font-style: normal; color: var(--orange); }
+    .section-lead { font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--steel); max-width: 620px; }
+
+    /* ABOUT */
+    #about { background: var(--dark-2); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-accent { position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 2px solid var(--orange); border-radius: 4px; z-index: 0; pointer-events: none; }
+    .about-img-wrap img { position: relative; z-index: 1; width: 100%; border-radius: 4px; display: block; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+    .feature-chip { background: var(--dark-3); border: 1px solid rgba(232,68,26,0.15); border-radius: 4px; padding: 16px; font-size: 0.88rem; font-weight: 500; color: var(--light); display: flex; align-items: center; gap: 10px; }
+    .feature-chip::before { content: '◆'; color: var(--orange); font-size: 0.55rem; flex-shrink: 0; }
+
+    /* SERVICES */
+    #services { background: var(--dark); }
+    .services-scroll-wrapper { margin-top: 52px; overflow-x: auto; padding-bottom: 16px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--orange) var(--dark-3); cursor: grab; user-select: none; }
+    .services-scroll-wrapper:active { cursor: grabbing; }
+    .services-scroll-wrapper::-webkit-scrollbar { height: 4px; }
+    .services-scroll-wrapper::-webkit-scrollbar-track { background: var(--dark-3); }
+    .services-scroll-wrapper::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+    .services-track { display: flex; gap: 20px; width: max-content; padding: 4px 2px 12px; }
+    .service-card { width: 300px; background: var(--dark-2); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden; flex-shrink: 0; transition: transform 0.3s, border-color 0.3s; }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(232,68,26,0.4); }
+    .service-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .service-card-body { padding: 22px; }
+    .service-icon { width: 40px; height: 40px; background: rgba(232,68,26,0.12); border: 1px solid rgba(232,68,26,0.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 14px; }
+    .service-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 8px; letter-spacing: 0.05em; }
+    .service-card-desc { font-size: 0.88rem; font-weight: 300; line-height: 1.65; color: var(--steel); }
+    .service-card-tag { margin-top: 14px; display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); border-top: 1px solid rgba(232,68,26,0.2); padding-top: 12px; width: 100%; }
+
+    /* WHY */
+    #why { background: var(--dark-2); border-top: 1px solid rgba(255,255,255,0.05); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .why-card { background: var(--dark-3); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 36px 28px; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+    .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--orange); transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease; }
+    .why-card:hover::before { transform: scaleY(1); }
+    .why-card:hover { border-color: rgba(232,68,26,0.3); transform: translateY(-4px); }
+    .why-number { font-family: 'Barlow Condensed', sans-serif; font-size: 4rem; font-weight: 900; color: rgba(232,68,26,0.1); line-height: 1; margin-bottom: 16px; }
+    .why-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; text-transform: uppercase; color: var(--white); letter-spacing: 0.06em; margin-bottom: 12px; }
+    .why-card-text { font-size: 0.9rem; font-weight: 300; line-height: 1.75; color: var(--steel); }
+
+    /* CTA BANNER */
+    #cta-banner { padding: 0; position: relative; overflow: hidden; min-height: 380px; display: flex; align-items: center; }
+    .cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,17,23,0.96) 40%, rgba(30,12,5,0.85) 100%); }
+    .cta-content { position: relative; z-index: 2; padding: 80px 5%; max-width: 700px; }
+    .cta-content .section-lead { margin-bottom: 36px; }
+
+    /* FOOTER */
+    #contact { background: var(--dark-3); border-top: 2px solid var(--orange); padding: 80px 5% 40px; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand img { height: 50px; object-fit: contain; margin-bottom: 18px; display: block; }
+    .footer-brand p { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: var(--steel); max-width: 280px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+    .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-contact-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; font-weight: 300; color: var(--steel); line-height: 1.5; }
+    .contact-icon { color: var(--orange); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+    .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav-links a { color: var(--steel); text-decoration: none; font-size: 0.9rem; font-weight: 300; transition: color 0.2s; }
+    .footer-nav-links a:hover { color: var(--orange); }
+    .footer-bottom { padding-top: 28px; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--mid); }
+    .footer-bottom span { color: var(--orange); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .hero-stats { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      section { padding: 64px 5%; }
+      .about-features { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <img src="public/images/logo.png" alt="NextGen Apex Masters Logo" onerror="this.style.display='none'" />
+    <div class="nav-wordmark">
+      NEXT<span class="accent">GEN</span>
+      <span class="sub">APEX MASTERS LTD</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="public/images/hero-building.jpg" alt="" class="hero-bg-img" />
+    <div class="hero-grid"></div>
+    <div class="hero-accent-bar"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">▸ Construction · Real Estate · Logistics</div>
+    <h1 class="hero-headline">Building<br />the <em>Future.</em></h1>
+    <p class="hero-sub">Professional construction, real estate, and logistics solutions delivered with technical precision. One company. Every stage.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Your Project</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">360°</div><div class="stat-label">Full Solution</div></div>
+    <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Service Lines</div></div>
+    <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Unified Team</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <div class="about-img-accent"></div>
+      <img src="public/images/about-team.jpg" alt="NextGen Apex Masters project" />
+    </div>
+    <div>
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title">A Premier <em>Enterprise</em> Shaping the Built Environment</h2>
+      <p class="section-lead">NextGen Apex Masters Ltd. provides a 360-degree solution by bridging the gap between visionary architectural design and robust supply chain management. From the first sketch to the final brick, we manage the entire lifecycle of your project to ensure lasting value and structural integrity.</p>
+      <div class="about-features">
+        <div class="feature-chip">Design to Delivery</div>
+        <div class="feature-chip">Structural Integrity</div>
+        <div class="feature-chip">Quality Materials</div>
+        <div class="feature-chip">On-Time Completion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-eyebrow">What We Do</div>
+  <h2 class="section-title">Our <em>Services</em></h2>
+  <p class="section-lead">We offer a vertically integrated approach — we don't just build, we control quality at every stage.<br>
+  <span style="font-size:0.8rem;color:var(--orange);font-style:italic;margin-top:6px;display:inline-block;">← Drag or scroll to explore →</span></p>
+
+  <div class="services-scroll-wrapper" id="servicesScroll">
+    <div class="services-track">
+      <div class="service-card">
+        <img src="public/images/service-construction.jpg" alt="Building & Construction" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">🏗️</div>
+          <div class="service-card-title">Building & Construction</div>
+          <p class="service-card-desc">Precision execution of residential, commercial, and institutional projects — from foundation to finishing.</p>
+          <div class="service-card-tag">▸ Core Service</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="public/images/service-architecture.jpg" alt="Architectural Design" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">📐</div>
+          <div class="service-card-title">Architectural Design</div>
+          <p class="service-card-desc">Functional and aesthetic blueprints inspired by modern, sustainable concepts that stand the test of time.</p>
+          <div class="service-card-tag">▸ Design</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="public/images/service-management.jpg" alt="Project Management" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">📋</div>
+          <div class="service-card-title">Project Management</div>
+          <p class="service-card-desc">End-to-end oversight to ensure budgets and timelines remain on track across every project phase.</p>
+          <div class="service-card-tag">▸ Management</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="public/images/service-realestate.jpg" alt="Real Estate Services" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">🏢</div>
+          <div class="service-card-title">Real Estate Services</div>
+          <p class="service-card-desc">Expert property management, sales, and development guidance to maximize asset value.</p>
+          <div class="service-card-tag">▸ Real Estate</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="public/images/service-logistics.jpg" alt="Logistics & Mobility" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">🚚</div>
+          <div class="service-card-title">Logistics & Mobility</div>
+          <p class="service-card-desc">Streamlined delivery of high-quality construction materials to eliminate delays and keep sites moving.</p>
+          <div class="service-card-tag">▸ Supply Chain</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="public/images/service-hardware.jpg" alt="Hardware & Electrical" class="service-card-img" />
+        <div class="service-card-body">
+          <div class="service-icon">🔧</div>
+          <div class="service-card-title">Hardware & Electrical</div>
+          <p class="service-card-desc">A one-stop shop for professional-grade tools and industry-standard electrical components.</p>
+          <div class="service-card-tag">▸ Retail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-eyebrow">Our Edge</div>
+  <h2 class="section-title">Why Choose <em>Us?</em></h2>
+  <p class="section-lead">Three pillars that set NextGen Apex Masters apart — consistently, on every project.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-number">01</div>
+      <div class="why-card-title">Full-Circle Advantage</div>
+      <p class="why-card-text">We manage design, supply, and construction under one roof — eliminating budget leaks and communication gaps at every stage.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">02</div>
+      <div class="why-card-title">Innovation-Driven</div>
+      <p class="why-card-text">We embrace modern design and engineering concepts to ensure your investment remains future-proof and ahead of the curve.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">03</div>
+      <div class="why-card-title">Built-In Reliability</div>
+      <p class="why-card-text">Our internal supply chain guarantees materials are always ready, ensuring timely delivery and zero project downtime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <img src="public/images/cta-background.jpg" alt="" class="cta-bg" />
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="section-eyebrow">Ready to Build?</div>
+    <h2 class="section-title">Let's Break <em>Ground.</em></h2>
+    <p class="section-lead">Whether it's a residential home, a commercial complex, or a full development project — our team is ready to deliver with precision.</p>
+    <a href="#contact" class="btn-primary">Start Your Project</a>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="public/images/logo.png" alt="NextGen Apex Masters" onerror="this.style.display='none'" />
+      <p>A premier enterprise dedicated to shaping the built environment with technical precision, from architectural design to logistics.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact Us</div>
+      <ul class="footer-contact-list">
+        <li><span class="contact-icon">📞</span><span>____________________</span></li>
+        <li><span class="contact-icon">✉</span><span>____________________</span></li>
+        <li><span class="contact-icon">📍</span><span>____________________</span></li>
+        <li><span class="contact-icon">🗺</span><span>____________________</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <script>document.write(new Date().getFullYear())</script> <span>NextGen Apex Masters Ltd.</span> All rights reserved.</div>
+    <div>Built with precision. Delivered with purpose.</div>
+  </div>
+</footer>
+
+<script>
+  // Drag-to-scroll for services
+  const slider = document.getElementById('servicesScroll');
+  let isDown = false, startX, scrollLeft;
+  slider.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+  slider.addEventListener('mouseleave', () => isDown = false);
+  slider.addEventListener('mouseup', () => isDown = false);
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    slider.scrollLeft = scrollLeft - (e.pageX - slider.offsetLeft - startX) * 1.5;
+  });
+</script>
+</body>
+</html>
